@@ -1,0 +1,3 @@
+class,nodes,mean_in_degree,mean_out_degree,max_in_degree,max_out_degree
+illicit,4545,1.27,0.742,177.0,3.0
+licit,42019,1.909,1.186,284.0,472.0

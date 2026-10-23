@@ -1,0 +1,19 @@
+{
+  "homophily": {
+    "P(next hop illicit | source illicit)": 0.5216936469078064,
+    "P(next hop illicit | source licit)": 0.022500071674585342
+  },
+  "n_illicit_components": 3547,
+  "largest_components": [
+    183,
+    100,
+    51,
+    45,
+    27,
+    23,
+    14,
+    12,
+    11,
+    11
+  ]
+}
