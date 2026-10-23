@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-and-smoke-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install torch_geometric numpy pandas scikit-learn matplotlib networkx pytest
+          pip install -e .
+      - name: Unit tests
+        run: pytest -q
+      - name: Smoke experiment on synthetic data
+        run: python scripts/run_experiments.py --synthetic --epochs 15 --seeds 1 --out results_ci
+      - name: Smoke analysis (figures)
+        run: python scripts/run_analysis.py --synthetic --epochs 15 --out results_ci/analysis
+      - uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: results_ci/

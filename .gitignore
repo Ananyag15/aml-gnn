@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+results/
+results_ci/
+data/elliptic/*.csv
+*.pt
+.ipynb_checkpoints/
+.DS_Store
